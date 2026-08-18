@@ -71,4 +71,54 @@ Sensitivity analysis helps investors understand:
 - downside protection  
 
 For each parameter variation:
+For each parameter variation:
+
+1. The engine selects one parameter to vary (market share, probability, factor, or risk).
+2. It applies the variant value (low/base/high).
+3. It recalculates expected revenue using the new market share and probability.
+4. It recalculates valuation using the new valuation factor.
+5. It applies the corresponding risk modifier variant (downside/base/upside).
+6. It computes the adjusted valuation.
+7. It stores the result in the sensitivity table.
+
+---
+
+## 6. Full Sensitivity Workflow
+
+The complete workflow for each scenario is:
+
+### Low Case Scenario
+- market_share = 10%  
+- success_probability = base_probability − 10%  
+- valuation_factor = 3×  
+- risk_modifier = downside  
+- adjusted_valuation = recomputed low-case value  
+
+### Base Case Scenario
+- market_share = 20%  
+- success_probability = base_probability  
+- valuation_factor = 4×  
+- risk_modifier = base  
+- adjusted_valuation = recomputed base-case value  
+
+### High Case Scenario
+- market_share = 30%  
+- success_probability = base_probability + 10%  
+- valuation_factor = 5×  
+- risk_modifier = upside  
+- adjusted_valuation = recomputed high-case value  
+
+---
+
+## 7. Sensitivity Output Usage
+
+The sensitivity results are used to:
+
+- identify valuation volatility  
+- highlight parameters with strongest impact  
+- determine upside/downside exposure  
+- support final investment recommendation  
+- strengthen portfolio-level insights  
+
+The memo integrates these results into the sensitivity section and the global summary.
 
