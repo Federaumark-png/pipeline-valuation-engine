@@ -1,1 +1,13 @@
+{
+  "company": "BioNTech",
+  "drugs": [
+    {
+      "name": "Oncology Drug A",
+      "phase": "Phase 2",
+      "market_size": 3000000000,
+      "price_per_treatment": 50000,
+      "patent_expiry_year": 2038
+    }
+  ]
+}
 
