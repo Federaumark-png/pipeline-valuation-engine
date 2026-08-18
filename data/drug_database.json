@@ -1,0 +1,40 @@
+{
+  "drugs": [
+    {
+      "name": "Pembrolizumab",
+      "brand": "Keytruda",
+      "company": "Merck",
+      "indication": "Oncology",
+      "market_size_usd": 24000000000,
+      "competition_level": "High",
+      "success_probability_phase3": 0.65
+    },
+    {
+      "name": "Nivolumab",
+      "brand": "Opdivo",
+      "company": "Bristol Myers Squibb",
+      "indication": "Oncology",
+      "market_size_usd": 18000000000,
+      "competition_level": "High",
+      "success_probability_phase3": 0.60
+    },
+    {
+      "name": "Onasemnogene abeparvovec",
+      "brand": "Zolgensma",
+      "company": "Novartis",
+      "indication": "Rare Disease",
+      "market_size_usd": 1500000000,
+      "competition_level": "Low",
+      "success_probability_phase3": 0.75
+    },
+    {
+      "name": "mRNA-1273",
+      "brand": "Spikevax",
+      "company": "Moderna",
+      "indication": "Infectious Disease",
+      "market_size_usd": 5000000000,
+      "competition_level": "Medium",
+      "success_probability_phase3": 0.80
+    }
+  ]
+}
