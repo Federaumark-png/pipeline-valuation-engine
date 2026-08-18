@@ -7,7 +7,20 @@
       "market_size": 3000000000,
       "price_per_treatment": 50000,
       "patent_expiry_year": 2038
+    },
+    {
+      "name": "mRNA Vaccine B",
+      "phase": "Phase 3",
+      "market_size": 5000000000,
+      "price_per_treatment": 120,
+      "patent_expiry_year": 2040
+    },
+    {
+      "name": "Rare Disease Therapy C",
+      "phase": "Phase 1",
+      "market_size": 800000000,
+      "price_per_treatment": 250000,
+      "patent_expiry_year": 2035
     }
   ]
 }
-
