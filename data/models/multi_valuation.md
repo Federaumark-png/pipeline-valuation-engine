@@ -33,3 +33,37 @@ Negative:
 - manufacturing_risk → -5%
 
 Adjusted valuation:
+adjusted_valuation = valuation × (1 + total_risk_modifier)
+
+---
+
+## 3. Total Pipeline Valuation
+All adjusted valuations are summed:
+total_pipeline_value = Σ adjusted_valuation(drug_i)
+
+
+---
+
+## 4. Portfolio Insights
+The system also generates:
+
+- Top-value asset  
+- Highest-risk asset  
+- Most sensitive asset  
+- Combined expected revenue  
+- Combined valuation  
+- Key drivers  
+- Key downside factors  
+
+---
+
+## 5. Output
+The final memo uses this logic to produce:
+
+- Executive summary  
+- Asset-by-asset breakdown  
+- Total valuation  
+- Risk assessment  
+- Recommendation  
+
+
