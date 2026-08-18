@@ -1,0 +1,32 @@
+{
+  "company_name": "BioNTech SE",
+  "headquarters": "Mainz, Germany",
+  "founded_year": 2008,
+  "employees": 5500,
+  "therapeutic_focus": [
+    "Oncology",
+    "Infectious Diseases",
+    "Rare Diseases",
+    "mRNA Technology"
+  ],
+  "key_partnerships": [
+    "Pfizer",
+    "Genentech",
+    "Sanofi",
+    "Roche"
+  ],
+  "annual_revenue_eur": 3500000000,
+  "annual_rnd_spend_eur": 1200000000,
+  "market_position": "Global leader in mRNA therapeutics and oncology innovation",
+  "strategic_strengths": [
+    "Strong IP portfolio",
+    "Advanced mRNA platform",
+    "High-profile partnerships",
+    "Robust clinical pipeline"
+  ],
+  "strategic_risks": [
+    "High R&D burn rate",
+    "Competitive oncology landscape",
+    "Regulatory complexity"
+  ]
+}
