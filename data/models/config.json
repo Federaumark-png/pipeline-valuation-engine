@@ -1,0 +1,17 @@
+{
+  "market_share_default": 0.20,
+  "valuation_factor_default": 4,
+  "risk_adjustments": {
+    "high_competition": -0.15,
+    "regulatory_risk": -0.10,
+    "manufacturing_risk": -0.05,
+    "strong_ip": 0.10,
+    "breakthrough_designation": 0.15
+  },
+  "phase_success_probabilities": {
+    "Phase 1": 0.10,
+    "Phase 2": 0.30,
+    "Phase 3": 0.60,
+    "Approval": 1.00
+  }
+}
