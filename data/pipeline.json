@@ -3,24 +3,33 @@
   "drugs": [
     {
       "name": "Oncology Drug A",
+      "indication": "Solid Tumors",
       "phase": "Phase 2",
       "market_size": 3000000000,
       "price_per_treatment": 50000,
-      "patent_expiry_year": 2038
+      "peak_sales": 2000000000,
+      "launch_years": 5,
+      "duration_years": 10
     },
     {
       "name": "mRNA Vaccine B",
-      "phase": "Phase 3",
-      "market_size": 5000000000,
+      "indication": "Respiratory Virus",
+      "phase": "Phase 1",
+      "market_size": 1500000000,
       "price_per_treatment": 120,
-      "patent_expiry_year": 2040
+      "peak_sales": 800000000,
+      "launch_years": 6,
+      "duration_years": 8
     },
     {
-      "name": "Rare Disease Therapy C",
-      "phase": "Phase 1",
-      "market_size": 800000000,
-      "price_per_treatment": 250000,
-      "patent_expiry_year": 2035
+      "name": "Immunotherapy C",
+      "indication": "Melanoma",
+      "phase": "Phase 3",
+      "market_size": 5000000000,
+      "price_per_treatment": 75000,
+      "peak_sales": 3500000000,
+      "launch_years": 3,
+      "duration_years": 12
     }
   ]
 }
