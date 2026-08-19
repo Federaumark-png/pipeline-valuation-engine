@@ -105,3 +105,11 @@ def action_unified_analysis(company_name=None, ticker=None):
         "stock_data": stock_data,
         "memo": memo
     }
+
+from startup_finder import find_small_cap_healthcare, find_phase1_startups
+
+def action_find_startups():
+    return {
+        "small_cap": find_small_cap_healthcare(),
+        "phase1": find_phase1_startups()
+    }
