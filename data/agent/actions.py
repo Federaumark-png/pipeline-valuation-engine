@@ -29,3 +29,28 @@ def action_find_companies():
 
 def action_find_specific_companies(tickers):
     return unified_company_selection(manual_list=tickers)
+
+from auto_pipeline_builder import save_pipeline
+
+def action_auto_pipeline(company_name, ticker=None):
+    """
+    Automatically generate a pipeline.json for a discovered company.
+    """
+    output = save_pipeline(company_name, ticker, output="pipeline.json")
+    return {
+        "status": "success",
+        "file": output,
+        "company": company_name
+    }
+
+def action_manual_pipeline(company_name, ticker=None):
+    """
+    Generate a pipeline.json for a specific company the user requests.
+    """
+    output = save_pipeline(company_name, ticker, output="pipeline.json")
+    return {
+        "status": "success",
+        "file": output,
+        "company": company_name
+    }
+
