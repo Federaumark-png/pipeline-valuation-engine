@@ -83,3 +83,8 @@
     "allow_file_writing": true
   }
 }
+
+"find_startups": {
+  "file": "actions.py",
+  "function": "action_find_startups"
+}
