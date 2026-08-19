@@ -17,6 +17,22 @@ It combines clinical development data, market assumptions, and probability-of-su
 - Investment Memo Generator (AI-powered)
 - Hermes Agent Integration (tool actions + API endpoints)
 
+  ## AI Agent (Hermes-ready)
+
+This project includes an AI Healthcare Investment Agent:
+
+- `Agents/prompt.txt` – defines the analyst role, workflow, and tone
+- `Agents/memo_template.md` – structure for investment memos
+- `Agents/actions.py` – Python actions to run valuation, pipeline analysis, stock screening, and memo generation
+- `Agents/agent.json` – configuration file describing the agent, its actions, and permissions
+
+The agent is designed to:
+- Analyze biotech pipelines from `pipeline.json`
+- Perform risk-adjusted valuation using `valuation.py`
+- Screen healthcare stocks via `stock_screener.py`
+- Generate investment memos using `memo_generator.py`
+
+
 ## Objective
 Build a complete Healthcare Investment Toolkit for:
 - Investment Banking
