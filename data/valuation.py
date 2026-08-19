@@ -1,56 +1,73 @@
 import json
 
-# --- Load pipeline data ---
-with open("data/pipeline.json", "r") as f:
-    pipeline = json.load(f)
+class ValuationEngine:
+    def __init__(self, pipeline_file="pipeline.json", discount_rate=0.12):
+        self.discount_rate = discount_rate
+        with open(pipeline_file, "r") as f:
+            self.pipeline = json.load(f)
 
-# --- Success probabilities ---
-SUCCESS_PROB = {
-    "Phase 1": 0.10,
-    "Phase 2": 0.30,
-    "Phase 3": 0.60,
-    "Approval": 1.00
-}
+    def probability_of_success(self, phase):
+        mapping = {
+            "Preclinical": 0.10,
+            "Phase 1": 0.63,
+            "Phase 2": 0.35,
+            "Phase 3": 0.62,
+            "Approved": 1.00
+        }
+        return mapping.get(phase, 0.10)
 
-# --- Default assumptions ---
-DEFAULT_MARKET_SHARE = 0.20   # 20%
-DEFAULT_FACTOR = 4            # valuation multiplier
+    def discount_factor(self, years):
+        return 1 / ((1 + self.discount_rate) ** years)
 
-def valuate_drug(drug):
-    market_size = drug["market_size"]
-    market_share = DEFAULT_MARKET_SHARE
-    factor = DEFAULT_FACTOR
-    phase = drug["phase"]
+    def value_single_drug(self, drug):
+        """
+        drug example:
+        {
+          "name": "Drug A",
+          "phase": "Phase 2",
+          "peak_sales": 2000000000,
+          "launch_years": 5,
+          "duration_years": 10
+        }
+        """
+        phase = drug["phase"]
+        pos = self.probability_of_success(phase)
+        peak_sales = drug["peak_sales"]
+        launch_years = drug["launch_years"]
+        duration_years = drug["duration_years"]
 
-    # 1. Revenue
-    revenue = market_size * market_share
+        # simple ramp-up and decline model
+        cash_flows = []
+        for year in range(1, duration_years + 1):
+            if year <= 3:
+                revenue = peak_sales * (year / 3.0)  # ramp-up
+            else:
+                revenue = peak_sales  # flat peak
 
-    # 2. Expected revenue
-    success_prob = SUCCESS_PROB.get(phase, 0)
-    expected_revenue = revenue * success_prob
+            df = self.discount_factor(launch_years + year)
+            cash_flows.append(revenue * df)
 
-    # 3. Valuation
-    valuation = expected_revenue * factor
+        base_npv = sum(cash_flows)
+        risk_adjusted_npv = base_npv * pos
 
-    return {
-        "name": drug["name"],
-        "phase": phase,
-        "revenue": revenue,
-        "expected_revenue": expected_revenue,
-        "valuation": valuation
-    }
+        return {
+            "name": drug["name"],
+            "phase": phase,
+            "probability_of_success": pos,
+            "base_npv": base_npv,
+            "risk_adjusted_npv": risk_adjusted_npv
+        }
 
-# --- Run valuation for all drugs ---
-results = []
-for drug in pipeline["drugs"]:
-    results.append(valuate_drug(drug))
+    def value_portfolio(self):
+        results = []
+        total_risk_adjusted = 0
 
-# --- Print results ---
-print(f"Company: {pipeline['company']}\n")
-for r in results:
-    print(f"Drug: {r['name']}")
-    print(f"  Phase: {r['phase']}")
-    print(f"  Revenue: {r['revenue']:,}")
-    print(f"  Expected Revenue: {r['expected_revenue']:,}")
-    print(f"  Valuation: {r['valuation']:,}")
-    print()
+        for drug in self.pipeline["drugs"]:
+            res = self.value_single_drug(drug)
+            results.append(res)
+            total_risk_adjusted += res["risk_adjusted_npv"]
+
+        return {
+            "drugs": results,
+            "portfolio_risk_adjusted_npv": total_risk_adjusted
+        }
