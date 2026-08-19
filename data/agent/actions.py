@@ -22,3 +22,10 @@ def action_run_stock_screener():
 def action_generate_memo():
     memo = generate_memo()
     return memo
+from company_selector import unified_company_selection
+
+def action_find_companies():
+    return unified_company_selection()
+
+def action_find_specific_companies(tickers):
+    return unified_company_selection(manual_list=tickers)
