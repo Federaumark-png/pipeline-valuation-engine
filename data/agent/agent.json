@@ -30,3 +30,56 @@
     "allow_file_writing": true
   }
 }
+
+{
+  "name": "HealthcareInvestmentAgent",
+  "description": "An AI agent that analyzes biotech pipelines, performs risk-adjusted valuation, screens healthcare stocks, and generates investment memos.",
+  
+  "prompt": "prompt.txt",
+  "template": "memo_template.md",
+
+  "actions": {
+    "run_valuation": {
+      "file": "actions.py",
+      "function": "action_run_valuation"
+    },
+    "run_pipeline_analysis": {
+      "file": "actions.py",
+      "function": "action_run_pipeline_analysis"
+    },
+    "run_stock_screener": {
+      "file": "actions.py",
+      "function": "action_run_stock_screener"
+    },
+    "generate_memo": {
+      "file": "actions.py",
+      "function": "action_generate_memo"
+    },
+    "find_companies": {
+      "file": "actions.py",
+      "function": "action_find_companies"
+    },
+    "find_specific_companies": {
+      "file": "actions.py",
+      "function": "action_find_specific_companies"
+    },
+    "auto_pipeline": {
+      "file": "actions.py",
+      "function": "action_auto_pipeline"
+    },
+    "manual_pipeline": {
+      "file": "actions.py",
+      "function": "action_manual_pipeline"
+    },
+    "unified_analysis": {
+      "file": "actions.py",
+      "function": "action_unified_analysis"
+    }
+  },
+
+  "permissions": {
+    "allow_python_execution": true,
+    "allow_file_reading": true,
+    "allow_file_writing": true
+  }
+}
