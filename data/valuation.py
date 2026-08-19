@@ -12,10 +12,14 @@ SUCCESS_PROB = {
     "Approval": 1.00
 }
 
+# --- Default assumptions ---
+DEFAULT_MARKET_SHARE = 0.20   # 20%
+DEFAULT_FACTOR = 4            # valuation multiplier
+
 def valuate_drug(drug):
     market_size = drug["market_size"]
-    market_share = drug["market_share"]
-    factor = drug["factor"]
+    market_share = DEFAULT_MARKET_SHARE
+    factor = DEFAULT_FACTOR
     phase = drug["phase"]
 
     # 1. Revenue
@@ -42,6 +46,7 @@ for drug in pipeline["drugs"]:
     results.append(valuate_drug(drug))
 
 # --- Print results ---
+print(f"Company: {pipeline['company']}\n")
 for r in results:
     print(f"Drug: {r['name']}")
     print(f"  Phase: {r['phase']}")
